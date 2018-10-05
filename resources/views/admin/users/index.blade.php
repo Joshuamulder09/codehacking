@@ -23,7 +23,7 @@
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
-            <td>{{$user->Role->name}}</td> //aantal uren gecreerd
+            <td>{{$user->role ? $user->role->name : 'User has no role'}}</td>//aantal uren gecreerd
             <td>{{$user->is_active == 1 ? 'Active' : 'Not active' }}</td> als user is active 1 is doe dan active anders not active
             <td>{{$user->created_at->diffForHumans()}}</td> //aantal uren gecreerd
             <td>{{$user->updated_at->diffForHumans()}}</td>

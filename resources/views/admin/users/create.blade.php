@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+
+
+
 @section('content')
+
 
     <h1>Create Users</h1>
 
-    {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store']) !!}
 
+    {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store','files'=>true]) !!}
 
 
     <div class="form-group">
@@ -30,29 +34,29 @@
         {!! Form::select('is_active', array(1 => 'Active', 0=> 'Not Active'), 0 , ['class'=>'form-control'])!!}
     </div>
 
+
+    <div class="form-group">
+        {!! Form::label('photo_id', 'Photo:') !!}
+        {!! Form::file('photo_id', null, ['class'=>'form-control'])!!}
+    </div>
+
+
+
     <div class="form-group">
         {!! Form::label('password', 'Password:') !!}
         {!! Form::password('password', ['class'=>'form-control'])!!}
     </div>
 
 
-
     <div class="form-group">
-      {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
     </div>
 
     {!! Form::close() !!}
 
-    @if(count($errors) > 0)
-    <div class="alert alert-danger">
 
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-                @endforeach
-        </ul>
+    @include('includes.form-error')
 
 
-    </div>
-@endif
+
 @stop
