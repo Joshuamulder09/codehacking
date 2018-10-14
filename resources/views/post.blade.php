@@ -1,11 +1,11 @@
-@extends('layouts.blog-post')
+@extends('layouts.blog-home')
 
 
 
 @section('content')
 
-
-
+<div class="row">
+<div class="col-md-8">
     <!-- Blog Post -->
 
     <!-- Title -->
@@ -37,6 +37,10 @@
     <!-- Posted Comments -->
 
     <div id="disqus_thread"></div>
+
+</div> <!-- COL MD 8 -->
+    @include('includes.front_sidebar')
+</div> <!-- ROW -->
     <script>
 
         /**
